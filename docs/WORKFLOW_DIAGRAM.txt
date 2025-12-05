@@ -1,0 +1,297 @@
+================================================================================
+PHARMACEUTICAL AGENTIC AI RESEARCH PLATFORM - WORKFLOW DIAGRAM
+================================================================================
+
+USER JOURNEY WORKFLOW
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         STEP 1: QUERY INPUT                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+    User accesses Web Application
+            │
+            ▼
+    ┌──────────────────┐
+    │  Select AI       │
+    │  Provider:       │
+    │  • OpenAI GPT-4 │
+    │  • Google Gemini │
+    └────────┬─────────┘
+             │
+             ▼
+    ┌──────────────────┐
+    │  Enter Research  │
+    │  Query:          │
+    │  "Find repurposing│
+    │   opportunities  │
+    │   for metformin  │
+    │   in oncology"   │
+    └────────┬─────────┘
+             │
+             ▼
+    ┌──────────────────┐
+    │  Click "Start    │
+    │  Research"       │
+    └────────┬─────────┘
+             │
+             ▼
+    ┌─────────────────────────────────────────────────────────────────────┐
+    │                    STEP 2: QUERY PROCESSING                         │
+    └─────────────────────────────────────────────────────────────────────┘
+
+             │
+             ▼
+    ┌──────────────────┐
+    │  FastAPI         │
+    │  Receives Query  │
+    └────────┬─────────┘
+             │
+             ▼
+    ┌──────────────────┐
+    │  Master Agent    │
+    │  Decomposes      │
+    │  Query into      │
+    │  Tasks           │
+    └────────┬─────────┘
+             │
+             │ Extract Key Terms
+             │ "metformin oncology"
+             │
+             ▼
+    ┌─────────────────────────────────────────────────────────────────────┐
+    │                    STEP 3: PARALLEL AGENT EXECUTION                 │
+    └─────────────────────────────────────────────────────────────────────┘
+
+             │
+             │ Task Distribution
+             │
+    ┌────────┼────────┬──────────┬──────────┬──────────┐
+    │        │        │          │          │          │
+    ▼        ▼        ▼          ▼          ▼          ▼
+┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐
+│  Web   │ │Clinical│ │ Patent │ │ Market│ │ EXIM   │ │Internal│
+│Intelli-│ │ Trials │ │Landscape│ │Intelli-│ │ Trends │ │Knowledge│
+│gence   │ │ Agent  │ │ Agent   │ │gence   │ │ Agent  │ │ Agent   │
+│Agent   │ │        │ │         │ │Agent   │ │        │ │         │
+└───┬────┘ └───┬────┘ └───┬─────┘ └───┬────┘ └───┬────┘ └───┬────┘
+    │         │          │          │          │          │
+    │         │          │          │          │          │
+    ▼         ▼          ▼          ▼          ▼          ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                    DATA GATHERING (Parallel)                        │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐
+│PubMed  │ │Clinical│ │ USPTO  │ │Market │ │ Trade │ │Document│
+│Search  │ │Trials  │ │Patent  │ │Data   │ │ Data  │ │Analysis│
+│        │ │Search  │ │Search  │ │       │ │       │ │        │
+│• 5     │ │• 10    │ │• 10    │ │• Market│ │• Import│ │• Upload│
+│Papers  │ │Trials  │ │Patents │ │Size   │ │/Export│ │Files   │
+│        │ │        │ │        │ │• CAGR │ │Trends │ │        │
+│• Authors│ │• Phase │ │• Status│ │• Share│ │       │ │• Extract│
+│• Dates │ │• Status│ │• Assign│ │       │ │       │ │Insights│
+└───┬────┘ └───┬────┘ └───┬────┘ └───┬────┘ └───┬────┘ └───┬────┘
+    │         │          │          │          │          │
+    │         │          │          │          │          │
+    ▼         ▼          ▼          ▼          ▼          ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                    AI ANALYSIS (Parallel)                           │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐
+│LLM     │ │LLM     │ │LLM     │ │LLM     │ │LLM     │ │LLM     │
+│Analysis│ │Analysis│ │Analysis│ │Analysis│ │Analysis│ │Analysis│
+│        │ │        │ │        │ │        │ │        │ │        │
+│• Sci   │ │• Trial │ │• Patent│ │• Market│ │• Trade │ │• Internal│
+│Summary │ │Analysis│ │Landscape│ │Intelli-│ │Analysis│ │Knowledge│
+│        │ │        │ │        │ │gence   │ │        │ │         │
+│• Mech  │ │• Phase │ │• IP    │ │• Size  │ │• Flow  │ │• Strategic│
+│of      │ │Distrib │ │Status  │ │• Growth│ │Patterns│ │Insights │
+│Action  │ │        │ │        │ │        │ │        │ │         │
+│        │ │• Status│ │• FTO   │ │• Trends│ │        │ │• Action │
+│• Evid  │ │Distrib │ │Analysis│ │        │ │        │ │Items    │
+│Strength│ │        │ │        │ │        │ │        │ │         │
+└───┬────┘ └───┬────┘ └───┬────┘ └───┬────┘ └───┬────┘ └───┬────┘
+    │         │          │          │          │          │
+    │         │          │          │          │          │
+    └─────────┴──────────┴──────────┴──────────┴──────────┘
+                    │
+                    │ All Results Collected
+                    │
+                    ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                    STEP 4: RESULTS SYNTHESIS                        │
+└─────────────────────────────────────────────────────────────────────┘
+
+                    │
+                    ▼
+            ┌───────────────┐
+            │ Master Agent  │
+            │ Synthesis     │
+            └───────┬───────┘
+                    │
+                    │ Combine All Agent Results
+                    │
+                    ▼
+            ┌───────────────┐
+            │ LLM Synthesis │
+            │ Prompt:       │
+            │ • Web Data    │
+            │ • Trials Data │
+            │ • Patent Data │
+            │ • Market Data │
+            └───────┬───────┘
+                    │
+                    ▼
+            ┌───────────────────────────────────────────────┐
+            │         EXECUTIVE SUMMARY GENERATED          │
+            │                                               │
+            │  # Executive Summary                          │
+            │                                               │
+            │  ## Key Repurposing Opportunities             │
+            │  • Opportunity 1                              │
+            │  • Opportunity 2                              │
+            │  • Opportunity 3                              │
+            │                                               │
+            │  ## Clinical Evidence & Development           │
+            │  • Mechanism of action                        │
+            │  • Trial status                               │
+            │  • Evidence strength                           │
+            │                                               │
+            │  ## Intellectual Property Status              │
+            │  • IP landscape                                │
+            │  • Freedom to operate                         │
+            │                                               │
+            │  ## Market Analysis                           │
+            │  • Market size                                │
+            │  • Growth drivers                             │
+            │  • Competitive position                       │
+            │                                               │
+            │  ## Strategic Recommendations                 │
+            │  1. Recommendation 1                          │
+            │  2. Recommendation 2                          │
+            │  3. Recommendation 3                          │
+            └───────┬───────────────────────────────────────┘
+                    │
+                    ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                    STEP 5: REPORT GENERATION                        │
+└─────────────────────────────────────────────────────────────────────┘
+
+                    │
+                    ▼
+            ┌───────────────┐
+            │ Report        │
+            │ Generator     │
+            └───────┬───────┘
+                    │
+                    │ Create PDF Report
+                    │
+                    ▼
+            ┌───────────────────────────────────────────────┐
+            │         PDF REPORT CREATED                     │
+            │                                               │
+            │  • Title Page                                 │
+            │  • Metadata (Query, Date, Intent)             │
+            │  • Executive Summary                          │
+            │  • Detailed Agent Findings                    │
+            │    - Web Intelligence Results                 │
+            │    - Clinical Trials Analysis                 │
+            │    - Patent Landscape                         │
+            │    - Market Intelligence                      │
+            │  • Citations & Sources                        │
+            └───────┬───────────────────────────────────────┘
+                    │
+                    ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                    STEP 6: RESULTS DELIVERY                         │
+└─────────────────────────────────────────────────────────────────────┘
+
+                    │
+                    ▼
+            ┌───────────────────────────────────────────────┐
+            │         FRONTEND DISPLAY                       │
+            │                                               │
+            │  • Query & Intent Display                      │
+            │  • Executive Summary (Markdown)                │
+            │  • Agent Results (Interactive)                 │
+            │  • Usage Statistics                            │
+            │  • Download Report Button                      │
+            └───────┬───────────────────────────────────────┘
+                    │
+                    ▼
+            ┌───────────────┐
+            │ User Reviews  │
+            │ Results       │
+            └───────┬───────┘
+                    │
+                    ▼
+            ┌───────────────┐
+            │ Download PDF  │
+            │ Report        │
+            └───────────────┘
+
+================================================================================
+EXECUTION TIMELINE
+================================================================================
+
+Time    │  Process
+────────┼────────────────────────────────────────────────────────────────────
+0:00    │  User submits query
+        │
+0:01    │  Master Agent decomposes query
+        │
+0:02    │  Master Agent distributes tasks to 6 worker agents
+        │
+0:02-   │  ┌────────────────────────────────────────────────────────────┐
+0:04    │  │  PARALLEL EXECUTION (All agents work simultaneously)       │
+        │  │                                                             │
+        │  │  • Web Intelligence Agent: PubMed search + analysis        │
+        │  │  • Clinical Trials Agent: ClinicalTrials.gov query       │
+        │  │  • Patent Landscape Agent: USPTO search                    │
+        │  │  • Market Intelligence Agent: Market data analysis         │
+        │  │  • EXIM Trends Agent: Trade analysis                       │
+        │  │  • Internal Knowledge Agent: Document analysis             │
+        │  └────────────────────────────────────────────────────────────┘
+        │
+0:04    │  All agent results collected
+        │
+0:04-   │  Master Agent synthesizes all results
+0:05    │  LLM generates executive summary
+        │
+0:05    │  Report Generator creates PDF
+        │
+0:05    │  Results delivered to frontend
+        │
+        │  TOTAL TIME: 2-5 minutes
+        │
+        │  vs. Manual Research: 8-16 hours (96% reduction)
+
+================================================================================
+COST BREAKDOWN PER QUERY
+================================================================================
+
+Component              │  Cost
+───────────────────────┼────────────────────────────────────────────────────
+OpenAI API Calls       │  $0.50 - $1.50
+  • GPT-4 Analysis     │  (6 agents × $0.08 - $0.25 each)
+  • Synthesis          │  ($0.20 - $0.50)
+                       │
+Google Gemini Calls    │  $0.20 - $0.50
+  (Alternative)        │  (6 agents × $0.03 - $0.08 each)
+                       │
+Infrastructure         │  $0.01 - $0.05
+  • Compute           │
+  • Storage           │
+                       │
+───────────────────────┼────────────────────────────────────────────────────
+TOTAL PER QUERY        │  $0.50 - $2.00
+                       │
+vs. Manual Research    │  $1,200 - $4,800
+                       │  (8-16 hours × $150-300/hour)
+                       │
+SAVINGS                │  $1,198 - $4,798 (99.6% reduction)
+
+================================================================================
+

@@ -1,0 +1,179 @@
+/* MedCore Modern Health Theme - Dashboard Styles */
+
+:root {
+  /* Colors */
+  --primary-base: #2563EB;
+  --primary-hover: #1D4ED8;
+  --primary-light: #EFF6FF;
+  --primary-dark: #1E40AF;
+
+  --bg-surface: #FFFFFF;
+  --bg-surface-subtle: #F8FAFC;
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --text-tertiary: #9CA3AF;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* Fonts */
+  --font-primary: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+  color: var(--text-primary);
+}
+
+/* Dashboard Header */
+.dashboard-header {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+  box-shadow: none !important;
+  color: var(--text-primary) !important;
+}
+
+.dashboard-title {
+  font-weight: 600 !important;
+  background: linear-gradient(to right, var(--primary-dark), var(--primary-base));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Modern Cards */
+.medcore-card {
+  border-radius: 1.5rem !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  box-shadow: var(--shadow-lg) !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(20px);
+  transition: transform 0.3s ease;
+}
+
+.medcore-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Buttons */
+.medcore-btn {
+  border-radius: 0.75rem !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  padding: 0.75rem 1.5rem !important;
+  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39) !important;
+}
+
+.medcore-btn:hover {
+  box-shadow: 0 6px 20px 0 rgba(37, 99, 235, 0.23) !important;
+  transform: translateY(-1px);
+}
+
+/* Markdown Content (Existing styles preserved/enhanced) */
+.markdown-content {
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.markdown-content h1 {
+  font-size: 1.8rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.markdown-content h2 {
+  font-size: 1.4rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--primary-base);
+  font-weight: 600;
+}
+
+.markdown-content h3 {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 0.6rem;
+  color: var(--primary-dark);
+}
+
+.markdown-content p {
+  margin-bottom: 1rem;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1rem 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.markdown-content th {
+  background-color: var(--primary-light);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.markdown-content td {
+  padding: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.markdown-content code {
+  background-color: #f1f5f9;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.375rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  color: var(--primary-dark);
+}
+
+.markdown-content pre {
+  background-color: #1e293b;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  color: #f8fafc;
+}
+
+.markdown-content blockquote {
+  border-left: 4px solid var(--primary-base);
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+  color: var(--text-secondary);
+  font-style: italic;
+  background: var(--primary-light);
+  padding: 1rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+}
+
+.markdown-content a {
+  color: var(--primary-base);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.markdown-content a:hover {
+  text-decoration: underline;
+}

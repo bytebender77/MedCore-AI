@@ -1,0 +1,227 @@
+================================================================================
+PHARMACEUTICAL AGENTIC AI RESEARCH PLATFORM - ARCHITECTURE DIAGRAM
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         FRONTEND LAYER (React)                              │
+│                                                                             │
+│  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐        │
+│  │   Query Panel    │  │  Results Display │  │  Usage Statistics │        │
+│  │  • Query Input   │  │  • Live Updates │  │  • Cost Tracking  │        │
+│  │  • AI Provider   │  │  • Agent Results │  │  • Token Usage   │        │
+│  │  • Sample Queries│  │  • Report View   │  │  • API Metrics    │        │
+│  └──────────────────┘  └──────────────────┘  └──────────────────┘        │
+│                                                                             │
+│  Material-UI Components | React 18.2 | Axios | React Markdown             │
+└──────────────────────────────┬─────────────────────────────────────────────┘
+                               │
+                               │ HTTP/REST API
+                               │ (JSON)
+                               ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    BACKEND API LAYER (FastAPI)                              │
+│                                                                             │
+│  ┌───────────────────────────────────────────────────────────────────────┐ │
+│  │                    MASTER AGENT (Orchestrator)                       │ │
+│  │                                                                       │ │
+│  │  • Query Decomposition                                               │ │
+│  │  • Task Distribution                                                 │ │
+│  │  • Results Synthesis                                                 │ │
+│  │  • Report Coordination                                               │ │
+│  └───────────────────────┬───────────────────────────────────────────────┘ │
+│                          │                                                  │
+│                          │ Parallel Task Distribution                      │
+│                          │                                                  │
+│  ┌───────────────────────┼───────────────────────────────────────────────┐ │
+│  │                       │                                                  │ │
+│  │  ┌──────────────┐  ┌──┴──┐  ┌──────────────┐  ┌──────────────┐      │ │
+│  │  │    Web       │  │Clinical│ │   Patent    │  │    Market    │      │ │
+│  │  │Intelligence │  │ Trials │ │  Landscape  │  │ Intelligence │      │ │
+│  │  │   Agent     │  │ Agent  │ │   Agent     │  │    Agent     │      │ │
+│  │  │             │  │        │ │             │  │              │      │ │
+│  │  │ PubMed      │  │Clinical│ │   USPTO     │  │   IQVIA      │      │ │
+│  │  │ Literature  │  │Trials  │ │   Patents   │  │   Insights   │      │ │
+│  │  └──────┬──────┘  └───┬───┘  └──────┬──────┘  └──────┬──────┘      │ │
+│  │         │              │              │                 │              │ │
+│  │  ┌──────┴──────┐  ┌───┴───┐  ┌──────┴──────┐  ┌──────┴──────┐      │ │
+│  │  │   EXIM      │  │Internal│  │            │  │            │      │ │
+│  │  │   Trends    │  │Knowledge│  │            │  │            │      │ │
+│  │  │   Agent     │  │  Agent │  │            │  │            │      │ │
+│  │  │             │  │        │  │            │  │            │      │ │
+│  │  │ Trade Data  │  │Document│  │            │  │            │      │ │
+│  │  │ Analysis    │  │Analysis│  │            │  │            │      │ │
+│  │  └─────────────┘  └────────┘  └────────────┘  └────────────┘      │ │
+│  └───────────────────────────────────────────────────────────────────────┘ │
+│                                                                             │
+│  FastAPI | Python 3.10+ | AsyncIO | Pydantic | Uvicorn                    │
+└──────────────────────────────┬─────────────────────────────────────────────┘
+                               │
+                               │ Service Calls
+                               │
+┌───────────────────────────────┴─────────────────────────────────────────────┐
+│                         SERVICE LAYER                                       │
+│                                                                             │
+│  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐         │
+│  │   Web Scraper    │  │   LLM Manager    │  │ Report Generator │         │
+│  │                  │  │                  │  │                  │         │
+│  │ • PubMed API     │  │ • OpenAI Client  │  │ • PDF Generation │         │
+│  │ • ClinicalTrials │  │ • Gemini Client │  │ • Markdown Parse │         │
+│  │ • USPTO Search   │  │ • Rate Limiting  │  │ • ReportLab      │         │
+│  │ • Web Scraping   │  │ • Cost Tracking  │  │ • Template Engine│         │
+│  │ • BeautifulSoup  │  │ • Token Counting│  │                  │         │
+│  └──────────────────┘  └──────────────────┘  └──────────────────┘         │
+│                                                                             │
+│  AioHTTP | BeautifulSoup4 | OpenAI SDK | Google AI SDK | ReportLab        │
+└──────────────────────────────┬─────────────────────────────────────────────┘
+                               │
+                               │ API Calls
+                               │
+┌───────────────────────────────┴─────────────────────────────────────────────┐
+│                    EXTERNAL DATA SOURCES & APIs                             │
+│                                                                             │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
+│  │   PubMed     │  │  Clinical    │  │    USPTO     │  │   OpenAI     │  │
+│  │   E-utilities│  │  Trials.gov  │  │   Patent     │  │     API      │  │
+│  │              │  │              │  │     API       │  │              │  │
+│  │ Scientific   │  │ Clinical     │  │ Intellectual │  │   GPT-4      │  │
+│  │ Literature   │  │ Trial Data    │  │ Property     │  │   GPT-3.5    │  │
+│  └──────────────┘  └──────────────┘  └──────────────┘  └──────────────┘  │
+│                                                                             │
+│  ┌──────────────┐                                                          │
+│  │   Google     │                                                          │
+│  │   Gemini     │                                                          │
+│  │     API      │                                                          │
+│  │              │                                                          │
+│  │ Gemini 2.5   │                                                          │
+│  │ Flash        │                                                          │
+│  └──────────────┘                                                          │
+│                                                                             │
+│  Web Intelligence | Market Data | Trade Databases                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+DATA FLOW DIAGRAM
+================================================================================
+
+USER QUERY
+    │
+    ▼
+┌─────────────────┐
+│  FastAPI Endpoint│
+│  /api/query      │
+└────────┬─────────┘
+         │
+         ▼
+┌─────────────────┐
+│  Master Agent   │
+│  • Decompose    │
+│  • Plan Tasks   │
+└────────┬────────┘
+         │
+         │ Distribute Tasks
+         │
+    ┌────┴────┬──────────┬──────────┬──────────┐
+    │         │          │          │          │
+    ▼         ▼          ▼          ▼          ▼
+┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐
+│  Web   │ │Clinical│ │ Patent │ │ Market│ │ EXIM   │
+│  Agent │ │ Agent  │ │ Agent  │ │ Agent │ │ Agent  │
+└───┬────┘ └───┬────┘ └───┬────┘ └───┬────┘ └───┬────┘
+    │         │          │          │          │
+    │         │          │          │          │
+    ▼         ▼          ▼          ▼          ▼
+┌──────────────────────────────────────────────┐
+│         Web Scraper Service                  │
+│  • PubMed Search                             │
+│  • ClinicalTrials.gov Query                  │
+│  • USPTO Patent Search                       │
+│  • Web Intelligence Gathering                │
+└──────────────────────────────────────────────┘
+    │         │          │          │          │
+    ▼         ▼          ▼          ▼          ▼
+┌──────────────────────────────────────────────┐
+│         LLM Manager Service                   │
+│  • OpenAI GPT-4 Analysis                     │
+│  • Google Gemini Analysis                    │
+│  • Cost Tracking                             │
+│  • Rate Limiting                             │
+└──────────────────────────────────────────────┘
+    │         │          │          │          │
+    ▼         ▼          ▼          ▼          ▼
+┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐
+│ Results│ │ Results│ │ Results│ │ Results│ │ Results│
+└───┬────┘ └───┬────┘ └───┬────┘ └───┬────┘ └───┬────┘
+    │         │          │          │          │
+    └─────────┴──────────┴──────────┴──────────┘
+                    │
+                    ▼
+         ┌──────────────────┐
+         │  Master Agent   │
+         │  • Synthesize   │
+         │  • Generate     │
+         │    Summary      │
+         └────────┬─────────┘
+                  │
+                  ▼
+         ┌──────────────────┐
+         │ Report Generator │
+         │  • PDF Creation  │
+         │  • Formatting    │
+         └────────┬─────────┘
+                  │
+                  ▼
+         ┌──────────────────┐
+         │  Frontend Display│
+         │  • Results View  │
+         │  • Report Download│
+         └──────────────────┘
+
+================================================================================
+TECHNOLOGY STACK SUMMARY
+================================================================================
+
+FRONTEND:
+  • React 18.2
+  • Material-UI 5.15
+  • Axios
+  • React Markdown
+  • Recharts
+
+BACKEND:
+  • FastAPI 0.109
+  • Python 3.10+
+  • AsyncIO
+  • Uvicorn
+  • Pydantic 2.6
+
+AI/ML:
+  • OpenAI GPT-4
+  • Google Gemini 2.5 Flash
+  • TikToken
+  • Custom Rate Limiter
+
+DATA PROCESSING:
+  • BeautifulSoup4
+  • AioHTTP
+  • ReportLab
+  • Markdown
+
+INFRASTRUCTURE:
+  • Docker
+  • Docker Compose
+  • Redis (optional)
+  • Nginx (production)
+
+AGENTS:
+  • 1 Master Agent (Orchestrator)
+  • 6 Worker Agents (Specialized)
+
+EXTERNAL APIS:
+  • PubMed E-utilities
+  • ClinicalTrials.gov API
+  • USPTO Patent API
+  • OpenAI API
+  • Google Gemini API
+
+================================================================================
+
